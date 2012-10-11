@@ -1,5 +1,6 @@
 AM_CFLAGS = $(CWARNFLAGS) $(SANCUS_CORE_CFLAGS)
 AM_LDFLAGS = $(SANCUS_CORE_LIBS)
 
-bin_PROGRAMS = 
+bin_PROGRAMS = \
+	rtnl_link_event
 
