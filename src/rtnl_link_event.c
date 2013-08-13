@@ -26,7 +26,7 @@
 #include "rtnl_link_event.h"
 
 
-static void netlink_rtlink_receiver_error(struct netlink_rtlink_receiver *UNUSED(recv),
+static void netlink_rtlink_receiver_error(struct sancus_nl_receiver *UNUSED(recv),
 		   struct ev_loop *UNUSED(loop),
 		   enum sancus_nl_receiver_error error)
 {
@@ -126,7 +126,7 @@ static int netlink_rtlink_receiver_attr_parse(const struct nlattr *attr, void *d
 	return SANCUS_NL_CB_OK;
 }
 
-static bool netlink_rtlink_receiver_on_message(struct sancus_nl_receiver *UNUSED(recv), struct ev_loop *UNUSED(loop), struct nlmsghdr *nlh)
+static bool netlink_rtlink_receiver_on_message(struct sancus_nl_receiver *UNUSED(recv), struct ev_loop *UNUSED(loop), const struct nlmsghdr *nlh)
 {
 	struct nlattr *tb[IFLA_MAX+1] = { NULL };
 	struct ifinfomsg *ifm = sancus_nl_msg_get_payload(nlh);
