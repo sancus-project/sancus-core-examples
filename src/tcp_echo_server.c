@@ -21,7 +21,7 @@
 #include "tcp_echo_server.h"
 
 
-static bool echo_stream_error(struct sancus_tcp_server *UNUSED(server),
+static bool echo_stream_error(struct sancus_stream *UNUSED(stream),
 		   struct ev_loop *UNUSED(loop),
 		   enum sancus_stream_error error)
 {
@@ -36,7 +36,7 @@ static bool echo_stream_error(struct sancus_tcp_server *UNUSED(server),
 	return true;
 }
 
-size_t echo_stream_read(struct sancus_stream *stream, char *buffer, size_t len)
+ssize_t echo_stream_read(struct sancus_stream *stream, char *buffer, size_t len)
 {
 	printf("echo_stream_read(): read buffer at %p has %zu bytes\n", buffer, len);
 	if (sancus_write(stream->read_watcher.fd, buffer, len) < 0)
