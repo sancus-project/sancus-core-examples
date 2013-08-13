@@ -10,6 +10,7 @@
 #include <netinet/in.h> /* struct sockaddr */
 #include <stdio.h>	/* printf */
 #include <errno.h>	/* sancus_fd */
+#include <string.h>	/* sancus_zalloc uses memset */
 
 #include <linux/if.h>
 #include <linux/netlink.h>
