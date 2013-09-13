@@ -19,6 +19,9 @@ AC_PROG_CC_C99
 # Checks for libraries.
 PKG_CHECK_MODULES(SANCUS_CORE, [sancus-core])
 AC_SUBST(SANCUS_CORE)
+PKG_CHECK_MODULES(SANCUS_NETLINK, [sancus-netlink], [have_sancus_netlink=yes], [have_sancus_netlink=no])
+AM_CONDITIONAL([HAVE_SANCUS_NETLINK], [test $have_sancus_netlink = yes])
+AC_SUBST(SANCUS_NETLINK)
 
 # Checks for header files.
 

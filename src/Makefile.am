@@ -2,6 +2,13 @@ AM_CFLAGS = $(CWARNFLAGS) $(SANCUS_CORE_CFLAGS)
 AM_LDFLAGS = $(SANCUS_CORE_LIBS)
 
 bin_PROGRAMS = \
-	rtnl_link_event \
 	tcp_echo_server
 
+if HAVE_SANCUS_NETLINK
+AM_CFLAGS += $(SANCUS_NETLINK_CFLAGS)
+AM_LDFLAGS += $(SANCUS_NETLINK_LIBS)
+
+bin_PROGRAMS += \
+	netlink/rtnl_link_event
+
+endif
