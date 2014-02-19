@@ -5,7 +5,7 @@ AC_INIT(sancus-core-examples, 0.0, amery@geeks.cl)
 AC_CONFIG_HEADERS([src/config.h])
 
 AC_CONFIG_AUX_DIR([build-aux])
-AM_INIT_AUTOMAKE([foreign -Wall -Werror])
+AM_INIT_AUTOMAKE([subdir-objects foreign -Wall -Werror])
 
 AC_CONFIG_MACRO_DIR([m4])
 
